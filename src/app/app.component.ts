@@ -26,33 +26,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  displayedColumns: string[] = ["name", "weight", "symbol", "position"];
-  columnsToDisplay: string[] = this.displayedColumns.slice();
-  data: PeriodicElement[] = ELEMENT_DATA;
-
-  addColumn() {
-    const randomColumn = Math.floor(
-      Math.random() * this.displayedColumns.length
-    );
-    this.columnsToDisplay.push(this.displayedColumns[randomColumn]);
-  }
-
-  removeColumn() {
-    if (this.columnsToDisplay.length) {
-      this.columnsToDisplay.pop();
-    }
-  }
-
-  shuffle() {
-    let currentIndex = this.columnsToDisplay.length;
-    while (0 !== currentIndex) {
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // Swap
-      let temp = this.columnsToDisplay[currentIndex];
-      this.columnsToDisplay[currentIndex] = this.columnsToDisplay[randomIndex];
-      this.columnsToDisplay[randomIndex] = temp;
-    }
-  }
+  displayedColumns: string[] = ["position", "name", "weight", "symbol"];
+  dataSource = ELEMENT_DATA;
 }
